@@ -1,0 +1,82 @@
+h3{
+	color:rgba(255,255,255,.9);
+}
+a {
+    color: #27ae60;
+    text-decoration: none;
+}
+a:hover{
+    color:rgba(255,255,255,.9) !important;
+}
+.jumbotron{
+	margin-top:50px;
+	border-radius:0px !important;
+	background:rgba(0,0,0,.8) !important;
+	height: 420px;
+}
+input{
+	background:rgba(0,0,0,0) !important;
+	border-radius:0px !important;
+}
+button{
+        
+	border-radius:12px !important;
+}
+.nav-tabs.nav-justified>li>a {
+    margin-right: 0;
+    border-radius: 0px;
+	background:rgba(0,0,0,.2);
+	 font-weight:bolder;
+	 color:rgba(255,255,255,.9);
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: rgba(255,255,255,.9);
+    cursor: default;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    color: #555;
+    cursor: default;
+    background:#27ae60 !important;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+	color:rgba(255,255,255,.9);
+}
+.container-fluid
+{
+	background-color:black;
+	
+}
+.regimage{
+top: 67px;
+left: 14px;
+height: 279px;
+}
+.staffreglabel{
+	color:white;
+	
+	
+}
+.uploadbutton
+{
+	float:left;
+	width:184ox;
+	position: relative;
+    left: 79px;
+    top: -8px;
+    height: 26px;
+	border-radius:5px;
+	
+}
+.model-header{
+	background-color:#5cb85c;
+	color:white;
+	text-align:center;
+	font-size:30px;
+	
+	}
+.body
+{
+font-family:Baskerville;
+     }
+	
+	

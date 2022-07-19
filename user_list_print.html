@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+<?php
+ include("dbconnection.php");
+ $sql="select * from user_details";
+ $res=mysql_query($sql);
+ 
+ 
+?>
+  <table width="634" border="1">
+    <tr>
+      <th scope="col">Sl.No</th>
+      <th scope="col">Name</th>
+      <th scope="col">Gender</th>
+      <th scope="col">Reg. No</th>
+      <th scope="col">Department(semester)</th>
+      <th scope="col">Individual Item List</th>
+      <th scope="col">Group Item List</th>
+      <th scope="col" id="actionC" >&nbsp;</th>
+    </tr>
+  <?php 
+  $i=0;
+   while($row=mysql_fetch_array($res)){
+	 $sid=$row['s_id'];
+ 	$name=$row['name'];
+	$name=$row['name'];
+	$gender=$row['gender'];
+	$regNo=$row['reg_no'];
+	$department=$row['department'];
+	$semester=$row['semester'];
+	$ch1=$row['choice1'];
+	$ch2=$row['choice2'];
+	$ch3=$row['choice3'];
+	$ch4=$row['choice4'];
+	$i++;
+	?>
+     <tr>
+    <td>
+    <?php echo $i ?>
+    </td>
+    <td>
+    
+    <?php echo $name ?>
+    </td>
+    <td>
+    <?php echo $gender ?>
+    </td>
+    <td>
+    <?php echo $regNo ?>
+    </td>
+    <td>
+    <?php echo $department."(".$semester.")" ?>
+    </td>
+    <td>
+    <?php echo $ch1."<br />".$ch2."<br />".$ch3."<br />".$ch4; ?>
+    </td>
+    <td>
+    <?php
+	$sql2="select item from group_details where student_reg_no='$regNo'";
+	$res2=mysql_query($sql2);
+	while($row2=mysql_fetch_array($res2)){
+	$item=$row2['item'];
+	echo "$item"."<br/>";
+	}
+	 ?>
+    </td>
+    <td id="actionC">
+    <a href="view_user_item_details.php?reg_no=<?php echo $regNo ?>">
+    <input type="button" name="btnView" id="btnView" value="View" />
+    </a>
+    <form action="" method="get">
+    <input type="hidden" name="regNo" value="<?php echo $regNo; ?>" />
+   <input type="Submit" name="btnDelete" id="btnDelete" value="Delete" />
+    
+    
+    </form>
+    </td>
+    </tr>
+    
+    
+    <?php
+ 	}?>
+    
+ <tr>
+ <td colspan="7">
+ </td>
+ <td>
+ <input type="button" name="btnPrint" value="Print" onclick="print();" />
+ </td>
+ </tr>
+ <?php
+	
+	if(isset($_POST['btnDelete'])){
+		$regNo=$_POST['regNo'];
+		 $sql="delete from user_details where reg_no=$regNo";
+	  mysql_query($sql);
+	 header("location:view_user_item_list.php");
+  
+	}
+ ?>
+  </table>
+</form>
+</body>
+</html>
